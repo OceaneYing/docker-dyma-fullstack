@@ -3,8 +3,8 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
-RUN nom run build
+RUN npm run build
 
 FROM nginx:latest
-COPY --from=build /app/build /usr/share/nginx/hrml
+COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80

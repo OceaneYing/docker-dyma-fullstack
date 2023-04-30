@@ -31,10 +31,11 @@ services:
       dockerfile: Dockerfile.prod
     ports:
       - 80:80
+    restart: unless-stopped
     depends_on:
       - api
       - db
-    restart: unless-stopped
+      - client
 volumes:
   dbprod:
     external: true
